@@ -15,9 +15,9 @@ def get_num_characters(text):
 
     return(letter_dict)
 
-def generate_report(text):
+def generate_report(text,path):
     print("============ Bookbot ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {path}...")
 
     print("----------- Word Count -----------")
     word_count, message = get_num_words(text)
@@ -26,7 +26,7 @@ def generate_report(text):
     print("----------- Character Count -----------")
     character_counts = get_num_characters(text)
     sorted_counts = sorted(character_counts.items(), key=lambda x: x[1], reverse=True)
-    for key, value in character_counts.items():
-        print(f"{key}: {value}")
+    for char, count in sorted_counts:
+        print(f"{char}: {count}")
               
     print("============ END ============")
